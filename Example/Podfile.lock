@@ -1,0 +1,16 @@
+PODS:
+  - TogetherAd (0.1.0)
+
+DEPENDENCIES:
+  - TogetherAd (from `../`)
+
+EXTERNAL SOURCES:
+  TogetherAd:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  TogetherAd: 593a12e588f04d5487177bd07329abcf6a939dbc
+
+PODFILE CHECKSUM: dc8625cc63f62c09a2b1fdbbf576d3b9205da61a
+
+COCOAPODS: 1.11.2
