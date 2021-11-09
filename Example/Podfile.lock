@@ -1,15 +1,34 @@
 PODS:
-  - TogetherAd (0.1.0)
+  - Ads-CN (4.0.0.5):
+    - Ads-CN/BUAdSDK (= 4.0.0.5)
+  - Ads-CN/BUAdSDK (4.0.0.5):
+    - Ads-CN/BUFoundation
+    - Ads-CN/Domestic
+  - Ads-CN/BUFoundation (4.0.0.5)
+  - Ads-CN/Domestic (4.0.0.5)
+  - GDTMobSDK (4.13.26):
+    - GDTMobSDK/GDTMobSDK (= 4.13.26)
+  - GDTMobSDK/GDTMobSDK (4.13.26)
+  - TogetherAd (0.1.0):
+    - Ads-CN
+    - GDTMobSDK
 
 DEPENDENCIES:
   - TogetherAd (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - Ads-CN
+    - GDTMobSDK
 
 EXTERNAL SOURCES:
   TogetherAd:
     :path: "../"
 
 SPEC CHECKSUMS:
-  TogetherAd: 593a12e588f04d5487177bd07329abcf6a939dbc
+  Ads-CN: 85c20c8e557b01f30bd0e1cb68244b90b061a8d5
+  GDTMobSDK: 5fd2b9754e187ea71f9d9dc43154f2248c132255
+  TogetherAd: 7f2c5cbcd32bd297e172014cc6ee578538aee670
 
 PODFILE CHECKSUM: dc8625cc63f62c09a2b1fdbbf576d3b9205da61a
 

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TogetherAd
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

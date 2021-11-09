@@ -36,7 +36,13 @@ TODO: Add long description of the pod here.
   #   'TogetherAd' => ['TogetherAd/Assets/*.png']
   # }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
+  s.public_header_files = 'TogetherAd/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
+  s.static_framework = true
+  
+  # 广点通SDK
+  s.dependency 'GDTMobSDK'
+  # 穿山甲SDK
+  s.dependency 'Ads-CN'
 end
