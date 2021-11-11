@@ -6,34 +6,33 @@
 //
 
 import Foundation
-import TogetherAd
 
 extension String {
-    func logv(tag: String = "TogetherAd") {
+    public func logv(tag: String = "TogetherAd") {
         if TogetherAd.shared.printLogEnable {
             print(tag, self)
         }
     }
     
-    func logd(tag: String = "TogetherAd") {
+    public func logd(tag: String = "TogetherAd") {
         if TogetherAd.shared.printLogEnable {
             print(tag, self)
         }
     }
     
-    func logi(tag: String = "TogetherAd") {
+    public func logi(tag: String = "TogetherAd") {
         if TogetherAd.shared.printLogEnable {
             print(tag, self)
         }
     }
     
-    func logw(tag: String = "TogetherAd") {
+    public func logw(tag: String = "TogetherAd") {
         if TogetherAd.shared.printLogEnable {
             print(tag, self)
         }
     }
     
-    func loge(tag: String = "TogetherAd") {
+    public func loge(tag: String = "TogetherAd") {
         if TogetherAd.shared.printLogEnable {
             print(tag, self)
         }

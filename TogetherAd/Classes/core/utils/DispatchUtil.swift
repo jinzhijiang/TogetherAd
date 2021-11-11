@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import TogetherAd
 
 public class DispatchUtil {
 

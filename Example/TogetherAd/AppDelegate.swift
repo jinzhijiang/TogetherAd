@@ -10,13 +10,58 @@ import UIKit
 import TogetherAd
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, SplashListener {
+    func onAdLoaded(providerType: String) {
+        
+    }
+    
+    func onAdClicked(providerType: String) {
+        
+    }
+    
+    func onAdExposure(providerType: String) {
+        
+    }
+    
+    func onAdDismissed(providerType: String) {
+        
+    }
+    
+    func onAdStartRequest(providerType: String) {
+        
+    }
+    
+    func onAdFailedAll(failedMsg: String?) {
+        
+    }
+    
+    func onAdFailed(providerType: String, failedMsg: String?) {
+        
+    }
+    
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        TogetherAd.shared.addProvider(adProviderEntity: AdProviderEntity(providerType: "csj", classPath: CsjProvider.self, desc: ""))
+        TogetherAdCsj.`init`(adProviderType: "csj", csjAdAppId: "5195862", isDebug: true)
+        TogetherAdCsj.idMapCsj["splash"] = "887525763"
+        let frame = UIScreen.main.bounds
+        CsjProvider.Splash.setImageAcceptedSize(width: frame.width, height: frame.height)
+        
+        if #available(iOS 14, *) {
+//            ATTrackingManager.requestTrackingAuthorization(completionHandler: { status in
+//            })
+        } else {
+            // Fallback on earlier versions
+        }
+        
+        if let rootViewController = window?.rootViewController {
+            let view = TogetherSplashView(alias: "splash", adTypeRatioMap: ["csj": 1], delegate: nil, rootViewController:rootViewController, frame: frame)
+            rootViewController.view.addSubview(view)
+        }
+        
         return true
     }
 

@@ -7,20 +7,32 @@
 
 import Foundation
 
-public class BaseAdProvider {
+public class BaseAdProvider : NSObject {
 
     internal var tag: String = ""
     
-    public required init() {
+    public required override init() {
+        super.init()
         tag = String(describing: self)
     }
 
+    //开屏广告仅请求
+    public func createSplashAd(
+            adProviderType: String,
+            alias: String,//当前广告位的别名
+            rootViewController: UIViewController? = nil,
+            listener: SplashListener//回调
+    ) -> UIView? {
+        "没有实现开屏页加载".loge()
+        return nil
+    }
+    
     /**
      * --------------------------- 开屏 ---------------------------
      */
     internal func callbackSplashStartRequest(adProviderType: String, alias: String, listener: SplashListener) {
         DispatchQueue.main.async {
-            "\(adProviderType): 开始请".logi()
+            "\(adProviderType): 开始请求".logi()
             listener.onAdStartRequest(providerType: adProviderType)
             TogetherAd.shared.allAdListener?.onAdStartRequest(providerType: adProviderType, alias: alias)
         }
