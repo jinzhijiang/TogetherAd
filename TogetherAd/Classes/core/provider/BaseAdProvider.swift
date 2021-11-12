@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class BaseAdProvider : NSObject {
+public class BaseAdProvider : AdProviderFuncDefine {
 
     internal var tag: String = ""
     
@@ -16,17 +16,6 @@ public class BaseAdProvider : NSObject {
         tag = String(describing: self)
     }
 
-    //开屏广告仅请求
-    public func createSplashAd(
-            adProviderType: String,
-            alias: String,//当前广告位的别名
-            rootViewController: UIViewController? = nil,
-            listener: SplashListener//回调
-    ) -> UIView? {
-        "没有实现开屏页加载".loge()
-        return nil
-    }
-    
     /**
      * --------------------------- 开屏 ---------------------------
      */
@@ -336,10 +325,10 @@ public class BaseAdProvider : NSObject {
         }
     }
 
-    internal func callbackBannerExpose(adProviderType: String, listener: BannerListener) {
+    internal func callbackBannerRendered(adProviderType: String, listener: BannerListener) {
         DispatchQueue.main.async {
-            "\(adProviderType): 曝光了".logi()
-            listener.onAdExpose(providerType: adProviderType)
+            "\(adProviderType): 渲染成功了".logi()
+            listener.onAdRendered(providerType: adProviderType)
         }
     }
 

@@ -14,31 +14,25 @@ public class CsjProviderSplash : BaseAdProvider, BUSplashAdDelegate {
     private var mAlias: String? = nil
     private var mSplashAd: BUSplashAdView? = nil
     
-    public override func createSplashAd(adProviderType: String, alias: String, rootViewController: UIViewController? = nil, listener: SplashListener) -> UIView? {
+    public override func createSplashAd(adProviderType: String, alias: String, rootViewController: UIViewController, frame: CGRect, listener: SplashListener) -> UIView? {
         mListener = listener
         mAdProviderType = adProviderType
         mAlias = alias
         
         callbackSplashStartRequest(adProviderType: adProviderType, alias: alias, listener: listener)
         
-        mSplashAd = BUSplashAdView(slotID: TogetherAdCsj.idMapCsj[alias]!, frame: CGRect(origin: CGPoint.zero, size: CGSize(width: CsjProvider.Splash.imageAcceptedSizeWidth, height: CsjProvider.Splash.imageAcceptedSizeHeight)))
+        mSplashAd = BUSplashAdView(slotID: TogetherAdCsj.idMapCsj[alias]!, frame: frame)
         mSplashAd!.tolerateTimeout = CsjProvider.Splash.maxFetchDelay
         mSplashAd!.delegate = self
-        if let viewController = rootViewController {
-            mSplashAd!.rootViewController = viewController
-        }
+        mSplashAd!.rootViewController = rootViewController
         mSplashAd!.loadAdData()
         return mSplashAd
-    }
-    
-    deinit {
-        "被释放".logi()
     }
 
     public func splashAd(_ splashAd: BUSplashAdView, didFailWithError error: Error?) {
         if let adProviderType = mAdProviderType, let alias = mAlias, let listener = mListener {
             let e = error as NSError?
-            callbackSplashFailed(adProviderType: adProviderType, alias: alias, listener: listener, errorCode: e?.code, errorMsg: e?.domain)
+            callbackSplashFailed(adProviderType: adProviderType, alias: alias, listener: listener, errorCode: e?.code, errorMsg: e?.userInfo.description)
         }
         splashAd.removeFromSuperview()
     }
@@ -84,6 +78,6 @@ public class CsjProviderSplash : BaseAdProvider, BUSplashAdDelegate {
     }
     
     public func splashAdDidCloseOtherController(_ splashAd: BUSplashAdView, interactionType: BUInteractionType) {
-        
+        "splashAdDidCloseOtherController".logi()
     }
 }

@@ -45,20 +45,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SplashListener {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         TogetherAd.shared.addProvider(adProviderEntity: AdProviderEntity(providerType: "csj", classPath: CsjProvider.self, desc: ""))
+        TogetherAd.shared.setPublicProviderRatio(ratioMap: ["csj": 1])
+        
         TogetherAdCsj.`init`(adProviderType: "csj", csjAdAppId: "5195862", isDebug: true)
         TogetherAdCsj.idMapCsj["splash"] = "887525763"
-        let frame = UIScreen.main.bounds
-        CsjProvider.Splash.setImageAcceptedSize(width: frame.width, height: frame.height)
+        TogetherAdCsj.idMapCsj["banner"] = "946453843"
         
-        if #available(iOS 14, *) {
-//            ATTrackingManager.requestTrackingAuthorization(completionHandler: { status in
-//            })
-        } else {
-            // Fallback on earlier versions
-        }
+        let frame = UIScreen.main.bounds
         
         if let rootViewController = window?.rootViewController {
-            let view = TogetherSplashView(alias: "splash", adTypeRatioMap: ["csj": 1], delegate: nil, rootViewController:rootViewController, frame: frame)
+            let view = TogetherSplashView(alias: "splash", rootViewController:rootViewController, frame: frame)
             rootViewController.view.addSubview(view)
         }
         

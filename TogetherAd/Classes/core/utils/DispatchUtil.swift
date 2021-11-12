@@ -28,10 +28,8 @@ public class DispatchUtil {
      */
     private static func getAdProviderPriority(ratioMap: [String: Int]) -> String? {
         "提供商权重：\(ratioMap)".logi()
-        let first = ratioMap.sorted {
-            return $0.value > $1.value
-        }.first
-        "权重最高的是: \(first)".logi()
+        let first = ratioMap.filter{$1 != 0}.sorted{$0.value > $1.value}.first
+        "权重最高的是: \(first?.key ?? "无")".logi()
         return first?.key
     }
 

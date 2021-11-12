@@ -8,6 +8,7 @@
 //
 
 import Foundation
+import AppTrackingTransparency
 
 public class TogetherAdCsj {
 
@@ -67,13 +68,12 @@ public class TogetherAdCsj {
         csjIdMap: [String: String]? = nil,
         /// 穿山甲提供者的类
         providerClassPath: T.Type = CsjProvider.self as! T.Type) {
-        
-        TogetherAd.shared.addProvider(
-            adProviderEntity:
-                AdProviderEntity<T>(
-                    providerType: adProviderType,
-                    classPath: providerClassPath,
-                    desc: String(describing: providerClassPath)))
+            TogetherAd.shared.addProvider(
+                adProviderEntity:
+                    AdProviderEntity<T>(
+                        providerType: adProviderType,
+                        classPath: providerClassPath,
+                        desc: String(describing: providerClassPath)))
             for (k, v) in csjIdMap ?? [:] {
                 idMapCsj[k] = v
             }
@@ -83,5 +83,12 @@ public class TogetherAdCsj {
             BUAdSDKManager.setGDPR(isGDPR ? 1 : 0)
             BUAdSDKManager.setOfflineType(offlineType)
             isThemeNight = isNight
+            
+            if #available(iOS 14, *) {
+                ATTrackingManager.requestTrackingAuthorization(completionHandler: { status in
+                })
+            } else {
+                // Fallback on earlier versions
+            }
     }
 }

@@ -16,7 +16,9 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
 //        let a = AdProviderEntity(providerType: "aa", classPath: "bb", desc: "ccc")
         
-//        print(a)
+        let frame = UIScreen.main.bounds
+        let bannerView = TogetherBannerView(alias: "banner", rootViewController: self, frame: CGRect(x: 0, y: 0, width: frame.width, height: 100))
+        view.addSubview(bannerView)
     }
 
     override func didReceiveMemoryWarning() {

@@ -19,9 +19,9 @@ public protocol BannerListener : BaseListener {
     func onAdClicked(providerType: String)
 
     /**
-     * 广告曝光了
+     * 广告已渲染
      */
-    func onAdExpose(providerType: String)
+    func onAdRendered(providerType: String)
 
     /**
      * 广告被关闭了

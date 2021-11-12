@@ -13,21 +13,24 @@ public class BaseTogetherView: UIView {
     public let delegate: BaseListener?
     private var adProvider: BaseAdProvider?
     internal weak var rootViewController: UIViewController?
+    internal var currentTypeRatioMap: [String:Int]
     
     enum FailedAllMsg: String {
+        case rootViewControllerWeak = "rootViewController已被释放"
         case failedAll_noDispatch = "全部请求失败或没有分配任何广告"
         case timeOut = "请求超时"
     }
     
-    public init(alias: String, adTypeRatioMap: [String:Int], delegate: BaseListener? = nil, rootViewController: UIViewController, frame: CGRect) {
+    public init(alias: String, adTypeRatioMap: [String:Int]? = nil, delegate: BaseListener? = nil, rootViewController: UIViewController, frame: CGRect) {
         self.alias = alias
         self.delegate = delegate
         self.rootViewController = rootViewController
+        self.currentTypeRatioMap = adTypeRatioMap ?? TogetherAd.shared.getPublicProviderRatio()
         super.init(frame: frame)
-        load(adTypeRatioMap: adTypeRatioMap)
+        load(adTypeRatioMap: self.currentTypeRatioMap)
     }
     
-    private func load(adTypeRatioMap: [String:Int]) {
+    internal func load(adTypeRatioMap: [String:Int]) {
         let adProviderType = DispatchUtil.getAdProvider(alias: alias, ratioMap: adTypeRatioMap)
         
         guard let adProviderType = adProviderType else {
@@ -67,6 +70,7 @@ public class BaseTogetherView: UIView {
                 newRatioMap[k] = 0
             }
         }
+        self.currentTypeRatioMap = newRatioMap
         return newRatioMap
     }
     
