@@ -19,67 +19,80 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aZ1-uQ-Nap">
-                                <rect key="frame" x="8" y="8" width="359" height="224"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g6C-R8-ewy">
+                                <rect key="frame" x="8" y="8" width="359" height="659"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Occ-FL-Pik">
-                                        <rect key="frame" x="0.0" y="0.0" width="359" height="0.0"/>
-                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dHo-13-4bY">
-                                        <rect key="frame" x="0.0" y="8" width="359" height="48"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="48" id="KuA-zu-0yK"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="加载banner广告"/>
-                                        <connections>
-                                            <action selector="onTapAddBanner:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="BHR-2n-IDY"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUV-Ux-XUO">
-                                        <rect key="frame" x="0.0" y="64" width="359" height="48"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="48" id="xrg-NK-iOM"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="加载并显示全屏视频"/>
-                                        <connections>
-                                            <action selector="onTapLoadAndShowFullVideo:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="FuE-l9-Vgz"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HpX-q4-yLM">
-                                        <rect key="frame" x="0.0" y="120" width="359" height="48"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="48" id="7y1-S8-BCn"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="加载并显示激励视频"/>
-                                        <connections>
-                                            <action selector="onTapLoadAndShowReward:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="3Ll-vt-3vI"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Edi-0o-LGT">
-                                        <rect key="frame" x="0.0" y="176" width="359" height="48"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="48" id="TXK-QA-fd6"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="加载并显示插屏"/>
-                                        <connections>
-                                            <action selector="onTapLoadAndShowInter:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="jYi-w3-YIZ"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aZ1-uQ-Nap">
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="224"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Occ-FL-Pik">
+                                                <rect key="frame" x="0.0" y="0.0" width="359" height="0.0"/>
+                                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dHo-13-4bY">
+                                                <rect key="frame" x="0.0" y="8" width="359" height="48"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="KuA-zu-0yK"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="加载banner广告"/>
+                                                <connections>
+                                                    <action selector="onTapAddBanner:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="BHR-2n-IDY"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUV-Ux-XUO">
+                                                <rect key="frame" x="0.0" y="64" width="359" height="48"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="xrg-NK-iOM"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="加载并显示全屏视频"/>
+                                                <connections>
+                                                    <action selector="onTapLoadAndShowFullVideo:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="FuE-l9-Vgz"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HpX-q4-yLM">
+                                                <rect key="frame" x="0.0" y="120" width="359" height="48"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="7y1-S8-BCn"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="加载并显示激励视频"/>
+                                                <connections>
+                                                    <action selector="onTapLoadAndShowReward:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="3Ll-vt-3vI"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Edi-0o-LGT">
+                                                <rect key="frame" x="0.0" y="176" width="359" height="48"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="TXK-QA-fd6"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="加载并显示插屏"/>
+                                                <connections>
+                                                    <action selector="onTapLoadAndShowInter:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="jYi-w3-YIZ"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
-                            </stackView>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="aZ1-uQ-Nap" secondAttribute="trailing" id="3SJ-6R-VBE"/>
+                                    <constraint firstItem="aZ1-uQ-Nap" firstAttribute="leading" secondItem="g6C-R8-ewy" secondAttribute="leading" id="DOJ-Xm-4PP"/>
+                                    <constraint firstItem="aZ1-uQ-Nap" firstAttribute="width" secondItem="g6C-R8-ewy" secondAttribute="width" id="EKG-JG-sjL"/>
+                                    <constraint firstAttribute="bottom" secondItem="aZ1-uQ-Nap" secondAttribute="bottom" id="TFj-Vd-HXe"/>
+                                    <constraint firstItem="aZ1-uQ-Nap" firstAttribute="top" secondItem="g6C-R8-ewy" secondAttribute="top" id="TPP-GU-cOq"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="aZ1-uQ-Nap" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="8" id="4Zt-3v-fUB"/>
-                            <constraint firstAttribute="trailing" secondItem="aZ1-uQ-Nap" secondAttribute="trailing" constant="8" id="M6Y-e4-1sP"/>
-                            <constraint firstItem="aZ1-uQ-Nap" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="sg6-Ef-r0E"/>
+                            <constraint firstItem="g6C-R8-ewy" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="8" id="CZd-QD-l2V"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="g6C-R8-ewy" secondAttribute="bottom" id="Y9C-sS-RaZ"/>
+                            <constraint firstAttribute="trailing" secondItem="g6C-R8-ewy" secondAttribute="trailing" constant="8" id="agG-ZI-kPk"/>
+                            <constraint firstItem="g6C-R8-ewy" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="wgx-ET-TEi"/>
                         </constraints>
                     </view>
                     <connections>
@@ -89,7 +102,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-26" y="133"/>
+            <point key="canvasLocation" x="-26.399999999999999" y="132.68365817091455"/>
         </scene>
     </scenes>
 </document>
