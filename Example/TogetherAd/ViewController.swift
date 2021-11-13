@@ -9,14 +9,30 @@
 import UIKit
 import TogetherAd
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, AllAdListener {
 
     @IBOutlet weak var stackView: UIStackView!
+    
+    @IBOutlet weak var currentInfo: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        TogetherAd.shared.allAdListener = self
     }
+    
+    func onAdStartRequest(providerType: String, alias: String) {
+        currentInfo.text = "onAdStartRequest -> providerType = \(providerType), alias = \(alias)"
+    }
+    
+    func onAdFailed(providerType: String, alias: String, failedMsg: String?) {
+        currentInfo.text = "onAdFailed -> providerType = \(providerType), alias = \(alias), failedMsg = \(failedMsg ?? "")"
+    }
+    
+    func onAdLoaded(providerType: String, alias: String) {
+        currentInfo.text = "onAdLoaded -> providerType = \(providerType), alias = \(alias)"
+    }
+    
 
     @IBAction func onTapAddBanner(_ sender: Any) {
         let frame = UIScreen.main.bounds

@@ -20,10 +20,16 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aZ1-uQ-Nap">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="216"/>
+                                <rect key="frame" x="8" y="8" width="359" height="224"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Occ-FL-Pik">
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="0.0"/>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dHo-13-4bY">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="48"/>
+                                        <rect key="frame" x="0.0" y="8" width="359" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="KuA-zu-0yK"/>
                                         </constraints>
@@ -34,7 +40,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUV-Ux-XUO">
-                                        <rect key="frame" x="0.0" y="56" width="375" height="48"/>
+                                        <rect key="frame" x="0.0" y="64" width="359" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="xrg-NK-iOM"/>
                                         </constraints>
@@ -45,7 +51,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HpX-q4-yLM">
-                                        <rect key="frame" x="0.0" y="112" width="375" height="48"/>
+                                        <rect key="frame" x="0.0" y="120" width="359" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="7y1-S8-BCn"/>
                                         </constraints>
@@ -56,7 +62,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Edi-0o-LGT">
-                                        <rect key="frame" x="0.0" y="168" width="375" height="48"/>
+                                        <rect key="frame" x="0.0" y="176" width="359" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="TXK-QA-fd6"/>
                                         </constraints>
@@ -71,12 +77,13 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="aZ1-uQ-Nap" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="4Zt-3v-fUB"/>
-                            <constraint firstAttribute="trailing" secondItem="aZ1-uQ-Nap" secondAttribute="trailing" id="M6Y-e4-1sP"/>
-                            <constraint firstItem="aZ1-uQ-Nap" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="sg6-Ef-r0E"/>
+                            <constraint firstItem="aZ1-uQ-Nap" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="8" id="4Zt-3v-fUB"/>
+                            <constraint firstAttribute="trailing" secondItem="aZ1-uQ-Nap" secondAttribute="trailing" constant="8" id="M6Y-e4-1sP"/>
+                            <constraint firstItem="aZ1-uQ-Nap" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="sg6-Ef-r0E"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="currentInfo" destination="Occ-FL-Pik" id="d2G-V5-mEa"/>
                         <outlet property="stackView" destination="aZ1-uQ-Nap" id="Iry-bo-Qwh"/>
                     </connections>
                 </viewController>
