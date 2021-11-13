@@ -44,8 +44,26 @@ public class AdProviderFuncDefine: NSObject {
         "没有实现请求全屏视频".loge()
     }
     
-    func show(fromRootViewController viewController: UIViewController) -> Bool {
+    func showFullVideoAd(fromRootViewController viewController: UIViewController) -> Bool {
         "没有实现显示全屏视频".loge()
         return false
     }
+   
+    /**
+     * -----------------------------------请求激励广告 -----------------------------------
+     */
+    func requestRewardAd(
+        adProviderType: String,
+        alias: String,
+        listener: RewardListener
+    ) {
+        "没有实现请求激励视频".loge()
+    }
+    
+    //展示激励广告
+    func showRewardAd(fromRootViewController viewController: UIViewController) -> Bool {
+        "没有实现显示激励视频".loge()
+        return false
+    }
+
 }

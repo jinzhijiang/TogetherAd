@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aZ1-uQ-Nap">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="104"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dHo-13-4bY">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="48"/>
@@ -42,6 +42,17 @@
                                         <buttonConfiguration key="configuration" style="filled" title="加载并显示全屏视频"/>
                                         <connections>
                                             <action selector="onTapLoadAndShowFullVideo:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="FuE-l9-Vgz"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HpX-q4-yLM">
+                                        <rect key="frame" x="0.0" y="112" width="375" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="7y1-S8-BCn"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="加载并显示激励视频"/>
+                                        <connections>
+                                            <action selector="onTapLoadAndShowReward:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="3Ll-vt-3vI"/>
                                         </connections>
                                     </button>
                                 </subviews>

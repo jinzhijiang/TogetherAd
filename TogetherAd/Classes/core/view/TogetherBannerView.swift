@@ -11,6 +11,8 @@ import UIKit
 public class TogetherBannerView: BaseTogetherView {
     
     private var subView: UIView? = nil
+    private lazy var bannerDelegate: BannerListener? =
+    self.helper.delegate as? BannerListener
     
     public required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -33,15 +35,15 @@ public class TogetherBannerView: BaseTogetherView {
 
 extension TogetherBannerView: BannerListener {
     public func onAdLoaded(providerType: String) {
-        (self.helper.delegate as? BannerListener)?.onAdLoaded(providerType: providerType)
+        bannerDelegate?.onAdLoaded(providerType: providerType)
     }
     
     public func onAdClicked(providerType: String) {
-        (self.helper.delegate as? BannerListener)?.onAdClicked(providerType: providerType)
+        bannerDelegate?.onAdClicked(providerType: providerType)
     }
     
     public func onAdRendered(providerType: String) {
-        (self.helper.delegate as? BannerListener)?.onAdRendered(providerType: providerType)
+        bannerDelegate?.onAdRendered(providerType: providerType)
         if let subView = subView {
             if subviews.count == 1 && subviews[0] == subView {
                 "本来就添加了这个view广告，不需要再次添加".logi()
@@ -53,16 +55,16 @@ extension TogetherBannerView: BannerListener {
     }
     
     public func onAdClose(providerType: String) {
-        (self.helper.delegate as? BannerListener)?.onAdClose(providerType: providerType)
+        bannerDelegate?.onAdClose(providerType: providerType)
         removeSelf()
     }
     
     public func onAdStartRequest(providerType: String) {
-        (self.helper.delegate as? BannerListener)?.onAdStartRequest(providerType: providerType)
+        bannerDelegate?.onAdStartRequest(providerType: providerType)
     }
 
     public func onAdFailed(providerType: String, failedMsg: String?) {
         self.load(adTypeRatioMap: self.helper.filterType(ratioMap: self.helper.currentTypeRatioMap, adProviderType: providerType))
-        (self.helper.delegate as? BannerListener)?.onAdFailed(providerType: providerType, failedMsg: failedMsg)
+        bannerDelegate?.onAdFailed(providerType: providerType, failedMsg: failedMsg)
     }
 }

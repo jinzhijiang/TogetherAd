@@ -194,13 +194,6 @@ public class BaseAdProvider : AdProviderFuncDefine {
         }
     }
 
-    internal func callbackRewardExpose(adProviderType: String, listener: RewardListener) {
-        DispatchQueue.main.async {
-            "\(adProviderType): 曝光了".logi()
-            listener.onAdExpose(providerType: adProviderType)
-        }
-    }
-
     internal func callbackRewardVideoComplete(adProviderType: String, listener: RewardListener) {
         DispatchQueue.main.async {
             "\(adProviderType): 播放完成".logi()

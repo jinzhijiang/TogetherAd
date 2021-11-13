@@ -11,6 +11,8 @@ import UIKit
 public class TogetherSplashView: BaseTogetherView {
     
     private var subView: UIView? = nil
+    private lazy var splashDelegate: SplashListener? =
+    self.helper.delegate as? SplashListener
     
     public required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -33,32 +35,32 @@ public class TogetherSplashView: BaseTogetherView {
 
 extension TogetherSplashView: SplashListener {
     public func onAdLoaded(providerType: String) {
-        (self.helper.delegate as? SplashListener)?.onAdLoaded(providerType: providerType)
+        splashDelegate?.onAdLoaded(providerType: providerType)
         if let subView = subView {
             addSubview(subView)
         }
     }
     
     public func onAdClicked(providerType: String) {
-        (self.helper.delegate as? SplashListener)?.onAdClicked(providerType: providerType)
+        splashDelegate?.onAdClicked(providerType: providerType)
     }
     
     public func onAdExposure(providerType: String) {
-        (self.helper.delegate as? SplashListener)?.onAdExposure(providerType: providerType)
+        splashDelegate?.onAdExposure(providerType: providerType)
     }
     
     public func onAdDismissed(providerType: String) {
-        (self.helper.delegate as? SplashListener)?.onAdDismissed(providerType: providerType)
+        splashDelegate?.onAdDismissed(providerType: providerType)
         removeSelf()
     }
     
     public func onAdStartRequest(providerType: String) {
-        (self.helper.delegate as? SplashListener)?.onAdStartRequest(providerType: providerType)
+        splashDelegate?.onAdStartRequest(providerType: providerType)
     }
     
     public func onAdFailed(providerType: String, failedMsg: String?) {
         self.load(adTypeRatioMap: self.helper.filterType(ratioMap: self.helper.currentTypeRatioMap, adProviderType: providerType))
-        (self.helper.delegate as? SplashListener)?.onAdFailed(providerType: providerType, failedMsg: failedMsg)
+        splashDelegate?.onAdFailed(providerType: providerType, failedMsg: failedMsg)
     }
     
     

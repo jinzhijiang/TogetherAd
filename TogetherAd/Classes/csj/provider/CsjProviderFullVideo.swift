@@ -20,11 +20,11 @@ public class CsjProviderFullVideo: CsjProviderBanner, BUNativeExpressFullscreenV
         callbackFullVideoStartRequest(adProviderType: adProviderType, alias: alias, listener: listener)
         
         mFullVideoAd = BUNativeExpressFullscreenVideoAd(slotID: TogetherAdCsj.idMapCsj[alias]!)
-        mFullVideoAd?.delegate = self
+        mFullVideoAd!.delegate = self
         mFullVideoAd!.loadData()
     }
     
-    override func show(fromRootViewController viewController: UIViewController) -> Bool {
+    override func showFullVideoAd(fromRootViewController viewController: UIViewController) -> Bool {
         return mFullVideoAd?.show(fromRootViewController: viewController) ?? false
     }
     

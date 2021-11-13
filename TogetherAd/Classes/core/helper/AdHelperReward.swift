@@ -1,34 +1,36 @@
 //
-//  AdHelperFullVideo.swift
+//  AdHelperReward.swift.swift
 //  TogetherAd
 //
 //  Created by 徐佳吉 on 2021/11/13.
 //
 
 import Foundation
-public class AdHelperFullVideo: BaseLoadShowHelper, FullVideoListener {
+public class AdHelperReward: BaseLoadShowHelper, RewardListener {
     
-    private lazy var fullVideoDelegate: FullVideoListener? =
-        self.delegate as? FullVideoListener
+    private lazy var rewardDelegate: RewardListener? =
+        self.delegate as? RewardListener
     
-    public required init(alias: String, adTypeRatioMap: [String : Int]? = nil, delegate: FullVideoListener? = nil) {
+    public required init(alias: String, adTypeRatioMap: [String : Int]? = nil, delegate: RewardListener? = nil) {
         super.init(alias: alias, adTypeRatioMap: adTypeRatioMap, delegate: delegate)
     }
     
     override func loadBy(adProviderType: String, adProvider: BaseAdProvider) {
-        adProvider.requestFullVideoAd(adProviderType: adProviderType, alias: self.alias, listener: self)
+        adProvider.requestRewardAd(adProviderType: adProviderType, alias: self.alias, listener: self)
     }
     
     public override func show(fromRootViewController viewController: UIViewController) -> Bool {
-        return adProvider?.showFullVideoAd(fromRootViewController: viewController) ?? false
+        return adProvider?.showRewardAd(fromRootViewController: viewController) ?? false
     }
     
+    public func onAdRewardVerify(providerType: String) {}
+    
     public func onAdLoaded(providerType: String) {
-        fullVideoDelegate?.onAdLoaded(providerType: providerType)
+        rewardDelegate?.onAdLoaded(providerType: providerType)
     }
     
     public func onAdVideoCached(providerType: String) {
-        fullVideoDelegate?.onAdVideoCached(providerType: providerType)
+        rewardDelegate?.onAdVideoCached(providerType: providerType)
         if let rootViewController = self.rootViewController {
             let isShow = show(fromRootViewController: rootViewController)
             "加载完成立即显示：\(isShow)".logi()
@@ -36,27 +38,27 @@ public class AdHelperFullVideo: BaseLoadShowHelper, FullVideoListener {
     }
     
     public func onAdShow(providerType: String) {
-        fullVideoDelegate?.onAdShow(providerType: providerType)
+        rewardDelegate?.onAdShow(providerType: providerType)
     }
     
     public func onAdClose(providerType: String) {
-        fullVideoDelegate?.onAdClose(providerType: providerType)
+        rewardDelegate?.onAdClose(providerType: providerType)
     }
     
     public func onAdClicked(providerType: String) {
-        fullVideoDelegate?.onAdClose(providerType: providerType)
+        rewardDelegate?.onAdClose(providerType: providerType)
     }
     
     public func onAdStartRequest(providerType: String) {
-        fullVideoDelegate?.onAdStartRequest(providerType: providerType)
+        rewardDelegate?.onAdStartRequest(providerType: providerType)
     }
     
     public func onAdVideoComplete(providerType: String) {
-        fullVideoDelegate?.onAdVideoComplete(providerType: providerType)
+        rewardDelegate?.onAdVideoComplete(providerType: providerType)
     }
     
     public func onAdFailed(providerType: String, failedMsg: String?) {
         self.load(adTypeRatioMap: self.filterType(ratioMap: self.currentTypeRatioMap, adProviderType: providerType))
-        fullVideoDelegate?.onAdFailed(providerType: providerType, failedMsg: failedMsg)
+        rewardDelegate?.onAdFailed(providerType: providerType, failedMsg: failedMsg)
     }
 }

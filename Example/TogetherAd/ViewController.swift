@@ -30,6 +30,11 @@ class ViewController: UIViewController {
         helper.loadAndShow(fromRootViewController: self)
     }
     
+    @IBAction func onTapLoadAndShowReward(_ sender: Any) {
+        let helper = AdHelperReward(alias: "reward")
+        helper.loadAndShow(fromRootViewController: self)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

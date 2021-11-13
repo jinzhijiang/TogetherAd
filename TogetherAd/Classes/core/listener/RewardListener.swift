@@ -24,11 +24,6 @@ public protocol RewardListener : BaseListener {
     func onAdShow(providerType: String)
 
     /**
-     * 广告曝光了（ 和 onAdShow 的区别是展示不一定曝光，曝光一定展示，需要展示一定的时间才会曝光，曝光的条件是提供商规定的 ）
-     */
-    func onAdExpose(providerType: String)
-
-    /**
      * 视频广告播放完成
      */
     func onAdVideoComplete(providerType: String)
@@ -48,4 +43,15 @@ public protocol RewardListener : BaseListener {
      */
     func onAdClose(providerType: String)
 
+}
+
+extension RewardListener {
+    public func onAdLoaded(providerType: String) {}
+    public func onAdClicked(providerType: String) {}
+    public func onAdShow(providerType: String) {}
+    public func onAdExpose(providerType: String) {}
+    public func onAdVideoComplete(providerType: String) {}
+    public func onAdVideoCached(providerType: String) {}
+    public func onAdRewardVerify(providerType: String) {}
+    public func onAdClose(providerType: String) {}
 }
