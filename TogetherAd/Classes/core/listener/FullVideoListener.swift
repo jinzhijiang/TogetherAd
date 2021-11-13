@@ -39,3 +39,17 @@ public protocol FullVideoListener : BaseListener {
     func onAdClose(providerType: String)
 
 }
+
+extension FullVideoListener {
+    public func onAdLoaded(providerType: String) {}
+
+    public func onAdClicked(providerType: String) {}
+
+    public func onAdShow(providerType: String) {}
+
+    public func onAdVideoCached(providerType: String) {}
+
+    public func onAdVideoComplete(providerType: String) {}
+
+    public func onAdClose(providerType: String) {}
+}

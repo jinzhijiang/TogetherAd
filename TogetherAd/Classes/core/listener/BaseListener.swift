@@ -25,3 +25,11 @@ public protocol BaseListener {
     func onAdFailed(providerType: String, failedMsg: String?)
 
 }
+
+extension BaseListener {
+    public func onAdStartRequest(providerType: String) {}
+
+    public func onAdFailedAll(failedMsg: String?) {}
+
+    public func onAdFailed(providerType: String, failedMsg: String?) {}
+}

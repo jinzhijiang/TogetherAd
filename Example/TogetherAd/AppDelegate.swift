@@ -50,6 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SplashListener {
         TogetherAdCsj.`init`(adProviderType: "csj", csjAdAppId: "5195862", isDebug: true)
         TogetherAdCsj.idMapCsj["splash"] = "887525763"
         TogetherAdCsj.idMapCsj["banner"] = "946453843"
+        TogetherAdCsj.idMapCsj["fullscreen"] = "946453837"
         
         let frame = UIScreen.main.bounds
         

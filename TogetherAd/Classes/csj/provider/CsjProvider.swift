@@ -9,7 +9,7 @@
 
 import Foundation
 
-public class CsjProvider: CsjProviderBanner {
+public class CsjProvider: CsjProviderFullVideo {
     
     public required init() {
         super.init()

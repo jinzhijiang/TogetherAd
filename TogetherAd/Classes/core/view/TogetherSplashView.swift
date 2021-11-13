@@ -22,9 +22,10 @@ public class TogetherSplashView: BaseTogetherView {
     
     override func loadBy(adProviderType: String, adProvider: BaseAdProvider) {
         if let rootViewController = rootViewController {
-            subView = adProvider.createSplashAd(adProviderType: adProviderType, alias: alias, rootViewController: rootViewController, frame: self.frame, listener: self)
+            subView = adProvider.createSplashAd(adProviderType: adProviderType, alias: self.helper.alias, rootViewController: rootViewController, frame: self.frame, listener: self)
         } else {
-            self.delegate?.onAdFailedAll(failedMsg: FailedAllMsg.rootViewControllerWeak.rawValue)
+            self.helper.delegate?.onAdFailedAll(failedMsg: FailedAllMsg.rootViewControllerWeak.rawValue)
+            removeSelf()
         }
     }
     
@@ -32,35 +33,32 @@ public class TogetherSplashView: BaseTogetherView {
 
 extension TogetherSplashView: SplashListener {
     public func onAdLoaded(providerType: String) {
-        (delegate as? SplashListener)?.onAdLoaded(providerType: providerType)
+        (self.helper.delegate as? SplashListener)?.onAdLoaded(providerType: providerType)
         if let subView = subView {
             addSubview(subView)
         }
     }
     
     public func onAdClicked(providerType: String) {
-        (delegate as? SplashListener)?.onAdClicked(providerType: providerType)
+        (self.helper.delegate as? SplashListener)?.onAdClicked(providerType: providerType)
     }
     
     public func onAdExposure(providerType: String) {
-        (delegate as? SplashListener)?.onAdExposure(providerType: providerType)
+        (self.helper.delegate as? SplashListener)?.onAdExposure(providerType: providerType)
     }
     
     public func onAdDismissed(providerType: String) {
-        (delegate as? SplashListener)?.onAdDismissed(providerType: providerType)
+        (self.helper.delegate as? SplashListener)?.onAdDismissed(providerType: providerType)
+        removeSelf()
     }
     
     public func onAdStartRequest(providerType: String) {
-        (delegate as? SplashListener)?.onAdStartRequest(providerType: providerType)
-    }
-    
-    public func onAdFailedAll(failedMsg: String?) {
-        fatalError("这个是当前类的功能回调，内部不会被调用")
+        (self.helper.delegate as? SplashListener)?.onAdStartRequest(providerType: providerType)
     }
     
     public func onAdFailed(providerType: String, failedMsg: String?) {
-        self.load(adTypeRatioMap: self.filterType(ratioMap: self.currentTypeRatioMap, adProviderType: providerType))
-        (delegate as? SplashListener)?.onAdFailed(providerType: providerType, failedMsg: failedMsg)
+        self.load(adTypeRatioMap: self.helper.filterType(ratioMap: self.helper.currentTypeRatioMap, adProviderType: providerType))
+        (self.helper.delegate as? SplashListener)?.onAdFailed(providerType: providerType, failedMsg: failedMsg)
     }
     
     

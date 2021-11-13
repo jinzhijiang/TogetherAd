@@ -11,16 +11,25 @@ import TogetherAd
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var stackView: UIStackView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-//        let a = AdProviderEntity(providerType: "aa", classPath: "bb", desc: "ccc")
-        
-        let frame = UIScreen.main.bounds
-        let bannerView = TogetherBannerView(alias: "banner", rootViewController: self, frame: CGRect(x: 0, y: 0, width: frame.width, height: 100))
-        view.addSubview(bannerView)
     }
 
+    @IBAction func onTapAddBanner(_ sender: Any) {
+        let frame = UIScreen.main.bounds
+        let bannerView = TogetherBannerView(alias: "banner", rootViewController: self, frame: CGRect(x: 0, y: 0, width: frame.width, height: 50))
+        bannerView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        stackView.addArrangedSubview(bannerView)
+    }
+    
+    @IBAction func onTapLoadAndShowFullVideo(_ sender: Any) {
+        let helper = AdHelperFullVideo(alias: "fullscreen")
+        helper.loadAndShow(fromRootViewController: self)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

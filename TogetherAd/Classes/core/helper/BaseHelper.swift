@@ -1,18 +1,16 @@
 //
-//  BaseTogetherView.swift
-//  Pods-TogetherAd_Example
+//  BaseHelper.swift
+//  TogetherAd
 //
-//  Created by 徐佳吉 on 2021/11/11.
+//  Created by 徐佳吉 on 2021/11/13.
 //
 
 import Foundation
-import UIKit
 
-public class BaseTogetherView: UIView {
+public class BaseHelper {
     internal let alias: String
     public let delegate: BaseListener?
-    private var adProvider: BaseAdProvider?
-    internal weak var rootViewController: UIViewController?
+    internal var adProvider: BaseAdProvider?
     internal var currentTypeRatioMap: [String:Int]
     
     enum FailedAllMsg: String {
@@ -21,20 +19,18 @@ public class BaseTogetherView: UIView {
         case timeOut = "请求超时"
     }
     
-    public init(alias: String, adTypeRatioMap: [String:Int]? = nil, delegate: BaseListener? = nil, rootViewController: UIViewController, frame: CGRect) {
+    public init(alias: String, adTypeRatioMap: [String:Int]? = nil, delegate: BaseListener? = nil) {
         self.alias = alias
         self.delegate = delegate
-        self.rootViewController = rootViewController
         self.currentTypeRatioMap = adTypeRatioMap ?? TogetherAd.shared.getPublicProviderRatio()
-        super.init(frame: frame)
-        load(adTypeRatioMap: self.currentTypeRatioMap)
     }
     
-    internal func load(adTypeRatioMap: [String:Int]) {
+    internal func loadCheck(adTypeRatioMap: [String:Int], failedAll:() -> (), load: (String, BaseAdProvider) -> ()) {
         let adProviderType = DispatchUtil.getAdProvider(alias: alias, ratioMap: adTypeRatioMap)
         
         guard let adProviderType = adProviderType else {
             self.delegate?.onAdFailedAll(failedMsg: FailedAllMsg.failedAll_noDispatch.rawValue)
+            failedAll()
             return
         }
         
@@ -42,15 +38,11 @@ public class BaseTogetherView: UIView {
         
         guard let adProvider = adProvider else {
             "\(adProviderType) 未初始化，请先初始化改类型广告".loge()
-            load(adTypeRatioMap: self.filterType(ratioMap: adTypeRatioMap, adProviderType: adProviderType))
+            loadCheck(adTypeRatioMap: self.filterType(ratioMap: adTypeRatioMap, adProviderType: adProviderType), failedAll: failedAll, load: load)
             return
         }
         
-        self.loadBy(adProviderType: adProviderType, adProvider: adProvider)
-    }
-    
-    internal func loadBy(adProviderType: String, adProvider: BaseAdProvider) {
-        
+        load(adProviderType, adProvider)
     }
     
     /**
@@ -73,9 +65,4 @@ public class BaseTogetherView: UIView {
         self.currentTypeRatioMap = newRatioMap
         return newRatioMap
     }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
 }

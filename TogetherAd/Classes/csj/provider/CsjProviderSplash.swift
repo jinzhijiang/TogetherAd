@@ -34,7 +34,6 @@ public class CsjProviderSplash : BaseAdProvider, BUSplashAdDelegate {
             let e = error as NSError?
             callbackSplashFailed(adProviderType: adProviderType, alias: alias, listener: listener, errorCode: e?.code, errorMsg: e?.userInfo.description)
         }
-        splashAd.removeFromSuperview()
     }
     
     public func splashAdDidLoad(_ splashAd: BUSplashAdView) {
@@ -57,12 +56,15 @@ public class CsjProviderSplash : BaseAdProvider, BUSplashAdDelegate {
     }
     
     public func splashAdWillClose(_ splashAd: BUSplashAdView) {
-         splashAd.removeFromSuperview()
        "splashAdWillClose".logi()
+        
     }
     
     public func splashAdDidClose(_ splashAd: BUSplashAdView) {
         "splashAdDidClose".logi()
+        if let adProviderType = mAdProviderType, let listener = mListener {
+            callbackSplashDismiss(adProviderType: adProviderType, listener: listener)
+        }
     }
     
     public func splashAdCountdown(toZero splashAd: BUSplashAdView) {
@@ -70,11 +72,7 @@ public class CsjProviderSplash : BaseAdProvider, BUSplashAdDelegate {
     }
 
     public func splashAdDidClickSkip(_ splashAd: BUSplashAdView) {
-        if let adProviderType = mAdProviderType, let listener = mListener {
-            callbackSplashDismiss(adProviderType: adProviderType, listener: listener)
-        }
-        splashAd.removeFromSuperview()
-
+        "splashAdDidClickSkip".logi()
     }
     
     public func splashAdDidCloseOtherController(_ splashAd: BUSplashAdView, interactionType: BUInteractionType) {
