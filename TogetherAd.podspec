@@ -18,7 +18,8 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-这是一个iOS广告聚合，为了方便在iOS中接入不同平台的广告。起因是需要在flutter中接入广告，Android端在Github中找到了一个叫比较好的TogetherAd（https://github.com/ifmvo/TogetherAd）的聚合，于是在iOS端写了一个同样流程的swift版本接入不同平台的广告SDK
+这是一个iOS广告聚合，为了方便在iOS中接入不同平台的广告。起因是需要在flutter中接入广告，Android端在Github中找到了一个叫比较好的TogetherAd（https://github.com/ifmvo/TogetherAd）的聚合，于是在iOS端写了一个同样流程的swift版本接入不同平台的广告SDK。
+目前只接入了：穿山甲平台的广告
                        DESC
 
   s.homepage         = 'https://github.com/xujiaji/TogetherAd'
