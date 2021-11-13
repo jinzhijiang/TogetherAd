@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'TogetherAd'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of TogetherAd.'
+  s.summary          = '广告聚合：帮助 iOS 开发者快速、便捷、灵活的接入国内多家主流广告 SDK。穿山甲。开屏广告、Banner横幅广告、插屏广告、激励广告、全屏广告。'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+这是一个iOS广告聚合，为了方便在iOS中接入不同平台的广告。起因是需要在flutter中接入广告，Android端在Github中找到了一个叫比较好的TogetherAd（https://github.com/ifmvo/TogetherAd）的聚合，于是在iOS端写了一个同样流程的swift版本接入不同平台的广告SDK
                        DESC
 
   s.homepage         = 'https://github.com/xujiaji/TogetherAd'
