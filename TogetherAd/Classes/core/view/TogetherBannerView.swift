@@ -13,6 +13,7 @@ public class TogetherBannerView: BaseTogetherView {
     private var subView: UIView? = nil
     private lazy var bannerDelegate: BannerListener? =
     self.helper.delegate as? BannerListener
+    private var isRenderedBanner = false
     
     public required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -49,6 +50,7 @@ extension TogetherBannerView: BannerListener {
                 "本来就添加了这个view广告，不需要再次添加".logi()
                 return
             }
+            isRenderedBanner = true
             subviews.forEach{$0.removeFromSuperview()}
             addSubview(subView)
         }
@@ -64,7 +66,10 @@ extension TogetherBannerView: BannerListener {
     }
 
     public func onAdFailed(providerType: String, failedMsg: String?) {
-        self.load(adTypeRatioMap: self.helper.filterType(ratioMap: self.helper.currentTypeRatioMap, adProviderType: providerType))
+        // 如果没有把banner添加到布局中过，才去重新加载下一波
+        if !isRenderedBanner {
+            self.load(adTypeRatioMap: self.helper.filterType(ratioMap: self.helper.currentTypeRatioMap, adProviderType: providerType))
+        }
         bannerDelegate?.onAdFailed(providerType: providerType, failedMsg: failedMsg)
     }
 }
