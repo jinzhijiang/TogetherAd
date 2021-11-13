@@ -29,3 +29,10 @@ public protocol SplashListener : BaseListener {
     func onAdDismissed(providerType: String)
 
 }
+
+extension SplashListener {
+    public func onAdLoaded(providerType: String) {}
+    public func onAdClicked(providerType: String) {}
+    public func onAdExposure(providerType: String) {}
+    public func onAdDismissed(providerType: String) {}
+}

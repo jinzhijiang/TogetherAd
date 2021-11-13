@@ -54,8 +54,8 @@ extension TogetherBannerView: BannerListener {
         }
     }
     
-    public func onAdClose(providerType: String) {
-        bannerDelegate?.onAdClose(providerType: providerType)
+    public func onAdClosed(providerType: String) {
+        bannerDelegate?.onAdClosed(providerType: providerType)
         removeSelf()
     }
     

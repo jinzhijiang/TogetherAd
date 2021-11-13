@@ -21,7 +21,7 @@ public protocol FullVideoListener : BaseListener {
     /**
      * 广告展示了
      */
-    func onAdShow(providerType: String)
+    func onAdShowed(providerType: String)
 
     /**
      * 视频缓存完成
@@ -36,7 +36,7 @@ public protocol FullVideoListener : BaseListener {
     /**
      * 广告被关闭了
      */
-    func onAdClose(providerType: String)
+    func onAdClosed(providerType: String)
 
 }
 
@@ -45,11 +45,11 @@ extension FullVideoListener {
 
     public func onAdClicked(providerType: String) {}
 
-    public func onAdShow(providerType: String) {}
+    public func onAdShowed(providerType: String) {}
 
     public func onAdVideoCached(providerType: String) {}
 
     public func onAdVideoComplete(providerType: String) {}
 
-    public func onAdClose(providerType: String) {}
+    public func onAdClosed(providerType: String) {}
 }

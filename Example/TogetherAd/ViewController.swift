@@ -35,6 +35,11 @@ class ViewController: UIViewController {
         helper.loadAndShow(fromRootViewController: self)
     }
     
+    @IBAction func onTapLoadAndShowInter(_ sender: Any) {
+        let helper = AdHelperInter(alias: "inter")
+        helper.loadAndShow(fromRootViewController: self)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

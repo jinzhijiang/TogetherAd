@@ -26,6 +26,16 @@ public protocol BannerListener : BaseListener {
     /**
      * 广告被关闭了
      */
-    func onAdClose(providerType: String)
+    func onAdClosed(providerType: String)
 
+}
+
+extension BannerListener {
+    public func onAdLoaded(providerType: String) {}
+
+    public func onAdClicked(providerType: String) {}
+
+    public func onAdRendered(providerType: String) {}
+
+    public func onAdClosed(providerType: String) {}
 }

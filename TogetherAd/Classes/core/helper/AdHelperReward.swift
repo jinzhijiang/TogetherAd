@@ -46,7 +46,7 @@ public class AdHelperReward: BaseLoadShowHelper, RewardListener {
     }
     
     public func onAdClicked(providerType: String) {
-        rewardDelegate?.onAdClose(providerType: providerType)
+        rewardDelegate?.onAdClicked(providerType: providerType)
     }
     
     public func onAdStartRequest(providerType: String) {

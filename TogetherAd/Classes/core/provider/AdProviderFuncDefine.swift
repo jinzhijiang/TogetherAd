@@ -66,4 +66,20 @@ public class AdProviderFuncDefine: NSObject {
         return false
     }
 
+    /**
+     * -----------------------------------插屏-----------------------------------
+     */
+    func requestInterAd(
+             adProviderType: String,
+             alias: String,
+             listener: InterListener
+    ) {
+        "没有实现请求插屏广告".loge()
+    }
+
+    //展示插屏广告
+    func showInterAd(fromRootViewController viewController: UIViewController) -> Bool {
+        "没有实现显示插屏广告".loge()
+        return false
+    }
 }

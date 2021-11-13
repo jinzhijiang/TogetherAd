@@ -18,6 +18,9 @@ public protocol InterListener : BaseListener {
      */
     func onAdLoaded(providerType: String)
 
+    /// 渲染成功
+    func onAdRendered(providerType: String)
+    
     /**
      * 广告被点击了
      */
@@ -26,11 +29,19 @@ public protocol InterListener : BaseListener {
     /**
      * 广告曝光了
      */
-    func onAdExpose(providerType: String)
+    func onAdShowed(providerType: String)
 
     /**
      * 广告被关闭了
      */
     func onAdClose(providerType: String)
 
+}
+
+extension InterListener {
+    public func onAdLoaded(providerType: String) {}
+    public func onAdRendered(providerType: String) {}
+    public func onAdClicked(providerType: String) {}
+    public func onAdShowed(providerType: String) {}
+    public func onAdClose(providerType: String) {}
 }

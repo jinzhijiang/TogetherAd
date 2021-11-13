@@ -35,16 +35,16 @@ public class AdHelperFullVideo: BaseLoadShowHelper, FullVideoListener {
         }
     }
     
-    public func onAdShow(providerType: String) {
-        fullVideoDelegate?.onAdShow(providerType: providerType)
+    public func onAdShowed(providerType: String) {
+        fullVideoDelegate?.onAdShowed(providerType: providerType)
     }
     
-    public func onAdClose(providerType: String) {
-        fullVideoDelegate?.onAdClose(providerType: providerType)
+    public func onAdClosed(providerType: String) {
+        fullVideoDelegate?.onAdClosed(providerType: providerType)
     }
     
     public func onAdClicked(providerType: String) {
-        fullVideoDelegate?.onAdClose(providerType: providerType)
+        fullVideoDelegate?.onAdClicked(providerType: providerType)
     }
     
     public func onAdStartRequest(providerType: String) {

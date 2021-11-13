@@ -259,7 +259,7 @@ public class BaseAdProvider : AdProviderFuncDefine {
     internal func callbackFullVideoShow(adProviderType: String, listener: FullVideoListener) {
         DispatchQueue.main.async {
             "\(adProviderType): 展示了".logi()
-            listener.onAdShow(providerType: adProviderType)
+            listener.onAdShowed(providerType: adProviderType)
         }
     }
 
@@ -273,7 +273,7 @@ public class BaseAdProvider : AdProviderFuncDefine {
     internal func callbackFullVideoClosed(adProviderType: String, listener: FullVideoListener) {
         DispatchQueue.main.async {
             "\(adProviderType): 关闭了".logi()
-            listener.onAdClose(providerType: adProviderType)
+            listener.onAdClosed(providerType: adProviderType)
         }
     }
 
@@ -314,7 +314,7 @@ public class BaseAdProvider : AdProviderFuncDefine {
     internal func callbackBannerClosed(adProviderType: String, listener: BannerListener) {
         DispatchQueue.main.async {
             "\(adProviderType): 关闭了".logi()
-            listener.onAdClose(providerType: adProviderType)
+            listener.onAdClosed(providerType: adProviderType)
         }
     }
 
@@ -351,6 +351,13 @@ public class BaseAdProvider : AdProviderFuncDefine {
         }
     }
 
+    internal func callbackInterRendered(adProviderType: String, listener: InterListener) {
+        DispatchQueue.main.async {
+            "\(adProviderType): 渲染成功了".logi()
+            listener.onAdRendered(providerType: adProviderType)
+        }
+    }
+    
     internal func callbackInterFailed(adProviderType: String, alias: String, listener: InterListener, errorCode: Int?, errorMsg: String?) {
         DispatchQueue.main.async {
             "\(adProviderType): 请求失败了：\(errorCode) \(errorMsg)".logi()
@@ -366,10 +373,10 @@ public class BaseAdProvider : AdProviderFuncDefine {
         }
     }
 
-    internal func callbackInterExpose(adProviderType: String, listener: InterListener) {
+    internal func callbackInterShowed(adProviderType: String, listener: InterListener) {
         DispatchQueue.main.async {
-            "\(adProviderType): 曝光了".logi()
-            listener.onAdExpose(providerType: adProviderType)
+            "\(adProviderType): 显示了".logi()
+            listener.onAdShowed(providerType: adProviderType)
         }
     }
 

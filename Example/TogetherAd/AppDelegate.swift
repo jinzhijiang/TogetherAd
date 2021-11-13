@@ -10,35 +10,7 @@ import UIKit
 import TogetherAd
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, SplashListener {
-    func onAdLoaded(providerType: String) {
-        
-    }
-    
-    func onAdClicked(providerType: String) {
-        
-    }
-    
-    func onAdExposure(providerType: String) {
-        
-    }
-    
-    func onAdDismissed(providerType: String) {
-        
-    }
-    
-    func onAdStartRequest(providerType: String) {
-        
-    }
-    
-    func onAdFailedAll(failedMsg: String?) {
-        
-    }
-    
-    func onAdFailed(providerType: String, failedMsg: String?) {
-        
-    }
-    
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
@@ -52,8 +24,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SplashListener {
         TogetherAdCsj.idMapCsj["banner"] = "946453843"
         TogetherAdCsj.idMapCsj["fullscreen"] = "946453837"
         TogetherAdCsj.idMapCsj["reward"] = "946453836"
+        TogetherAdCsj.idMapCsj["inter"] = "947075764"
         
         let frame = UIScreen.main.bounds
+        
+        // 设置和服务器配置的一致的比例，这里服务器配置的宽高比例为3：2
+        CsjProvider.Inter.setSize(width: frame.width - 80, height: (frame.width - 80) * (2.0/3.0))
         
         if let rootViewController = window?.rootViewController {
             let view = TogetherSplashView(alias: "splash", rootViewController:rootViewController, frame: frame)

@@ -9,7 +9,7 @@
 
 import Foundation
 
-public class CsjProvider: CsjProviderReward {
+public class CsjProvider: CsjProviderInter {
     
     public required init() {
         super.init()
@@ -73,5 +73,24 @@ public class CsjProvider: CsjProviderReward {
          */
         public static var rewardVerify: Bool = false
 
+    }
+    
+    /**
+      * --------------------------- 插屏 ---------------------------
+      */
+    public class Inter {
+        
+        //图片的宽高
+        internal static var width: CGFloat = -1
+
+        internal static var height: CGFloat = -1
+
+        /**
+         * 说明： 的比例可以请求 600*900
+         */
+        public static func setSize(width: CGFloat, height: CGFloat) {
+            Inter.width = width
+            Inter.height = height
+        }
     }
 }
