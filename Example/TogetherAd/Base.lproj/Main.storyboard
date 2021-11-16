@@ -23,7 +23,7 @@
                                 <rect key="frame" x="8" y="8" width="359" height="659"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aZ1-uQ-Nap">
-                                        <rect key="frame" x="0.0" y="0.0" width="359" height="224"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="280"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Occ-FL-Pik">
                                                 <rect key="frame" x="0.0" y="0.0" width="359" height="0.0"/>
@@ -73,6 +73,17 @@
                                                 <buttonConfiguration key="configuration" style="filled" title="加载并显示插屏"/>
                                                 <connections>
                                                     <action selector="onTapLoadAndShowInter:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="jYi-w3-YIZ"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ci-Y3-dKx">
+                                                <rect key="frame" x="0.0" y="232" width="359" height="48"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="bCr-nz-xOJ"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="加载并显示一个Native广告"/>
+                                                <connections>
+                                                    <action selector="onTapLoadAndShowNativeExpress:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="daJ-Pm-TVc"/>
                                                 </connections>
                                             </button>
                                         </subviews>

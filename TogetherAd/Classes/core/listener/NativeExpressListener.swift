@@ -38,3 +38,12 @@ public protocol NativeExpressListener : BaseListener {
      */
     func onAdClosed(providerType: String, adObject: Any?)
 }
+
+extension NativeExpressListener {
+    public func onAdLoaded(providerType: String, adList: [Any]) {}
+    public func onAdClicked(providerType: String, adObject: Any?) {}
+    public func onAdShow(providerType: String, adObject: Any?) {}
+    public func onAdRenderSuccess(providerType: String, adObject: Any?) {}
+    public func onAdRenderFail(providerType: String, adObject: Any?) {}
+    public func onAdClosed(providerType: String, adObject: Any?) {}
+}

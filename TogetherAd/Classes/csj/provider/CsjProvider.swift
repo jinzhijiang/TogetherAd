@@ -9,7 +9,7 @@
 
 import Foundation
 
-public class CsjProvider: CsjProviderInter {
+public class CsjProvider: CsjProviderNativeExpress {
     
     public required init() {
         super.init()

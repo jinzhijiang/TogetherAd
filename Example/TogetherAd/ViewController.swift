@@ -9,7 +9,7 @@
 import UIKit
 import TogetherAd
 
-class ViewController: UIViewController, AllAdListener {
+class ViewController: UIViewController, AllAdListener, NativeExpressListener {
 
     @IBOutlet weak var stackView: UIStackView!
     
@@ -54,6 +54,20 @@ class ViewController: UIViewController, AllAdListener {
     @IBAction func onTapLoadAndShowInter(_ sender: Any) {
         let helper = AdHelperInter(alias: "inter")
         helper.loadAndShow(fromRootViewController: self)
+    }
+    
+    var nativeExpress: UIView? = nil
+    @IBAction func onTapLoadAndShowNativeExpress(_ sender: Any) {
+        let frame = UIScreen.main.bounds
+        // 高度自适应的时候填0
+        nativeExpress = TogetherNativeExpressView(alias: "native", delegate: self, rootViewController: self, frame: CGRect(x: 0, y: 0, width: frame.width, height: 0))
+    }
+    
+    func onAdRenderSuccess(providerType: String, adObject: Any?) {
+        if let nativeExpress = nativeExpress {
+            nativeExpress.heightAnchor.constraint(equalToConstant: nativeExpress.frame.height).isActive = true
+            stackView.addArrangedSubview(nativeExpress)
+        }
     }
     
     override func didReceiveMemoryWarning() {

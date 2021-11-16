@@ -51,7 +51,7 @@ public class BaseAdProvider : AdProviderFuncDefine {
 
     internal func callbackSplashFailed(adProviderType: String, alias: String, listener: SplashListener, errorCode: Int?, errorMsg: String?) {
         DispatchQueue.main.async {
-            "\(adProviderType): 请求失败了：\(errorCode), \(errorMsg)".logi()
+            "\(adProviderType): 请求失败了：\(errorCode ?? -1) \(errorMsg ?? "")".logi()
                  listener.onAdFailed(providerType: adProviderType, failedMsg: errorMsg)
             TogetherAd.shared.allAdListener?.onAdFailed(providerType: adProviderType, alias: alias, failedMsg: errorMsg)
         }
@@ -61,33 +61,6 @@ public class BaseAdProvider : AdProviderFuncDefine {
         DispatchQueue.main.async {
             "\(adProviderType): 消失了".logi()
             listener.onAdDismissed(providerType: adProviderType)
-        }
-    }
-
-    /**
-     * --------------------------- 原生信息流 ---------------------------
-     */
-    internal func callbackNativeStartRequest(adProviderType: String, alias: String, listener: NativeListener) {
-        DispatchQueue.main.async {
-            "\(adProviderType): 开始请求".logi()
-            listener.onAdStartRequest(providerType: adProviderType)
-            TogetherAd.shared.allAdListener?.onAdStartRequest(providerType: adProviderType, alias: alias)
-        }
-    }
-
-    internal func callbackNativeLoaded(adProviderType: String, alias: String, listener: NativeListener, adList: [Any]) {
-        DispatchQueue.main.async {
-            "\(adProviderType): 请求成功了, 请求到\(adList.count)个广告".logi()
-            listener.onAdLoaded(providerType: adProviderType, adList: adList)
-            TogetherAd.shared.allAdListener?.onAdLoaded(providerType: adProviderType, alias: alias)
-        }
-    }
-
-    internal func callbackNativeFailed(adProviderType: String, alias: String, listener: NativeListener, errorCode: Int?, errorMsg: String?) {
-        DispatchQueue.main.async {
-            "\(adProviderType): 请求失败了：\(errorCode) \(errorMsg)".logi()
-                 listener.onAdFailed(providerType: adProviderType, failedMsg: errorMsg)
-            TogetherAd.shared.allAdListener?.onAdFailed(providerType: adProviderType, alias: alias, failedMsg: errorMsg)
         }
     }
 
@@ -112,7 +85,7 @@ public class BaseAdProvider : AdProviderFuncDefine {
 
     internal func callbackNativeExpressFailed(adProviderType: String, alias: String, listener: NativeExpressListener, errorCode: Int?, errorMsg: String?) {
         DispatchQueue.main.async {
-            "\(adProviderType): 请求失败了：\(errorCode) \(errorMsg)".logi()
+            "\(adProviderType): 请求失败了：\(errorCode ?? -1) \(errorMsg ?? "")".logi()
             listener.onAdFailed(providerType: adProviderType, failedMsg: errorMsg)
             TogetherAd.shared.allAdListener?.onAdFailed(providerType: adProviderType, alias: alias, failedMsg: errorMsg)
         }
@@ -139,9 +112,9 @@ public class BaseAdProvider : AdProviderFuncDefine {
         }
     }
 
-    internal func callbackNativeExpressRenderFail(adProviderType: String, adObject: Any?, listener: NativeExpressListener) {
+    internal func callbackNativeExpressRenderFail(adProviderType: String, adObject: Any?, errorCode: Int?, errorMsg: String?, listener: NativeExpressListener) {
         DispatchQueue.main.async {
-            "\(adProviderType): 渲染失败了".logi()
+            "\(adProviderType): 渲染失败了：\(errorCode ?? -1) \(errorMsg ?? "")".logi()
             listener.onAdRenderFail(providerType: adProviderType, adObject: adObject)
         }
     }
@@ -174,7 +147,7 @@ public class BaseAdProvider : AdProviderFuncDefine {
 
     internal func callbackRewardFailed(adProviderType: String, alias: String, listener: RewardListener, errorCode: Int?, errorMsg: String?) {
         DispatchQueue.main.async {
-            "\(adProviderType): 请求失败了：\(errorCode) \(errorMsg)".logi()
+            "\(adProviderType): 请求失败了：\(errorCode ?? -1) \(errorMsg ?? "")".logi()
             listener.onAdFailed(providerType: adProviderType, failedMsg: errorMsg)
             TogetherAd.shared.allAdListener?.onAdFailed(providerType: adProviderType, alias: alias, failedMsg: errorMsg)
         }
@@ -243,7 +216,7 @@ public class BaseAdProvider : AdProviderFuncDefine {
 
     internal func callbackFullVideoFailed(adProviderType: String, alias: String, listener: FullVideoListener, errorCode: Int?, errorMsg: String?) {
         DispatchQueue.main.async {
-            "\(adProviderType): 请求失败了：\(errorCode) \(errorMsg)".logi()
+            "\(adProviderType): 请求失败了：\(errorCode ?? -1) \(errorMsg ?? "")".logi()
             listener.onAdFailed(providerType: adProviderType, failedMsg: errorMsg)
             TogetherAd.shared.allAdListener?.onAdFailed(providerType: adProviderType, alias: alias, failedMsg: errorMsg)
         }
@@ -305,7 +278,7 @@ public class BaseAdProvider : AdProviderFuncDefine {
 
     internal func callbackBannerFailed(adProviderType: String, alias: String, listener: BannerListener, errorCode: Int?, errorMsg: String?) {
         DispatchQueue.main.async {
-            "\(adProviderType): 请求失败了：\(errorCode) \(errorMsg)".logi()
+            "\(adProviderType): 请求失败了：\(errorCode ?? -1) \(errorMsg ?? "")".logi()
             listener.onAdFailed(providerType: adProviderType, failedMsg: errorMsg)
             TogetherAd.shared.allAdListener?.onAdFailed(providerType: adProviderType, alias: alias, failedMsg: errorMsg)
         }
@@ -360,7 +333,7 @@ public class BaseAdProvider : AdProviderFuncDefine {
     
     internal func callbackInterFailed(adProviderType: String, alias: String, listener: InterListener, errorCode: Int?, errorMsg: String?) {
         DispatchQueue.main.async {
-            "\(adProviderType): 请求失败了：\(errorCode) \(errorMsg)".logi()
+            "\(adProviderType): 请求失败了：\(errorCode ?? -1) \(errorMsg ?? "")".logi()
             listener.onAdFailed(providerType: adProviderType, failedMsg: errorMsg)
             TogetherAd.shared.allAdListener?.onAdFailed(providerType: adProviderType, alias: alias, failedMsg: errorMsg)
         }

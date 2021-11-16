@@ -34,6 +34,30 @@ public class AdProviderFuncDefine: NSObject {
     }
     
     /**
+     * -----------------------------------获取原生模板-----------------------------------
+     */
+    public func requestNativeExpressAd(
+        adProviderType: String,
+        alias: String,
+        size: CGSize,
+        count: Int,
+        listener: NativeExpressListener
+    ) {
+        "没有实现Native广告的请求".loge()
+    }
+    
+    /// 渲染native
+    public func renderNativeExpress(ad: Any, rootViewController: UIViewController) {
+        "没有实现渲染native广告".loge()
+    }
+    
+    // 获取native大小
+    public func getNativeExpressSize(ad: Any) -> CGSize {
+        "没有实现获取大小".logi()
+        return CGSize(width: 0, height: 0)
+    }
+    
+    /**
      * -----------------------------------请求全屏视频广告 -----------------------------------
      */
     func requestFullVideoAd(

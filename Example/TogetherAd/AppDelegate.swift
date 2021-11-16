@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         TogetherAdCsj.idMapCsj["fullscreen"] = "946453837"
         TogetherAdCsj.idMapCsj["reward"] = "946453836"
         TogetherAdCsj.idMapCsj["inter"] = "947075764"
+        TogetherAdCsj.idMapCsj["native"] = "947094333"
         
         let frame = UIScreen.main.bounds
         
