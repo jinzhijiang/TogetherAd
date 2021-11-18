@@ -23,7 +23,7 @@
                                 <rect key="frame" x="8" y="8" width="359" height="659"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aZ1-uQ-Nap">
-                                        <rect key="frame" x="0.0" y="0.0" width="359" height="280"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="336"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Occ-FL-Pik">
                                                 <rect key="frame" x="0.0" y="0.0" width="359" height="0.0"/>
@@ -53,8 +53,19 @@
                                                     <action selector="onTapLoadAndShowFullVideo:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="FuE-l9-Vgz"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HpX-q4-yLM">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N3d-FZ-FOa">
                                                 <rect key="frame" x="0.0" y="120" width="359" height="48"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="1cC-OT-yBy"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="加载全屏视频"/>
+                                                <connections>
+                                                    <action selector="onTapLoadFullVideo:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="YI6-7Y-5hu"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HpX-q4-yLM">
+                                                <rect key="frame" x="0.0" y="176" width="359" height="48"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="7y1-S8-BCn"/>
                                                 </constraints>
@@ -65,7 +76,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Edi-0o-LGT">
-                                                <rect key="frame" x="0.0" y="176" width="359" height="48"/>
+                                                <rect key="frame" x="0.0" y="232" width="359" height="48"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="TXK-QA-fd6"/>
                                                 </constraints>
@@ -76,7 +87,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ci-Y3-dKx">
-                                                <rect key="frame" x="0.0" y="232" width="359" height="48"/>
+                                                <rect key="frame" x="0.0" y="288" width="359" height="48"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="bCr-nz-xOJ"/>
                                                 </constraints>

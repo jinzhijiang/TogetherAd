@@ -9,7 +9,7 @@
 import UIKit
 import TogetherAd
 
-class ViewController: UIViewController, AllAdListener, NativeExpressListener {
+class ViewController: UIViewController, AllAdListener, NativeExpressListener, FullVideoListener {
 
     @IBOutlet weak var stackView: UIStackView!
     
@@ -44,6 +44,34 @@ class ViewController: UIViewController, AllAdListener, NativeExpressListener {
     @IBAction func onTapLoadAndShowFullVideo(_ sender: Any) {
         let helper = AdHelperFullVideo(alias: "fullscreen")
         helper.loadAndShow(fromRootViewController: self)
+    }
+    
+    var adHelperFullVideo: AdHelperFullVideo? = nil
+    @IBAction func onTapLoadFullVideo(_ sender: Any) {
+        adHelperFullVideo = AdHelperFullVideo(alias: "fullscreen", delegate: self)
+        adHelperFullVideo?.load()
+    }
+    
+    func onAdVideoCached(providerType: String) {
+        let button = UIButton()
+        if #available(iOS 15.0, *) {
+            var config = UIButton.Configuration.filled()
+            config.title = "显示全屏视频"
+            button.configuration = config
+        } else {
+            // Fallback on earlier versions
+            button.setTitle("显示全屏视频", for: .normal)
+        }
+        button.addTarget(self, action: #selector(onTopShowFullVideo), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = true
+        button.widthAnchor.constraint(equalToConstant: stackView.frame.width).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 48).isActive = true
+        stackView.addArrangedSubview(button)
+    }
+    
+    @objc func onTopShowFullVideo() {
+        let isShowed = adHelperFullVideo?.show(fromRootViewController: self)
+        "onTopShowFullVideo isShowed = \(isShowed ?? false)".logi()
     }
     
     @IBAction func onTapLoadAndShowReward(_ sender: Any) {
