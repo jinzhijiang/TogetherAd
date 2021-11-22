@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'TogetherAd'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = '广告聚合：帮助 iOS 开发者快速、便捷、灵活的接入国内多家主流广告 SDK。穿山甲。开屏广告、Banner横幅广告、插屏广告、激励广告、全屏广告。'
 
 # This description is used to generate tags and improve search results.
