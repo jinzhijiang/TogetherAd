@@ -14,12 +14,6 @@ public class TogetherAdCsj {
 
     /// 必须设置，穿山甲的广告位ID
     public static var idMapCsj = [String: String]()
-    /// 可选参数，需在初始化之前，设置是否为计费用户：true计费用户、false非计费用户。默认为false非计费用户。须征得用户同意才可传入该参数
-    public static var isPaid: Bool = false {
-        didSet {
-            BUAdSDKManager.setIsPaidApp(isPaid)
-        }
-    }
 
     /// 可选参数，需在初始化之前，设置用户画像的关键词列表 **不能超过为1000个字符**。须征得用户同意才可传入该参数
     public static var keywords: String? = nil {
